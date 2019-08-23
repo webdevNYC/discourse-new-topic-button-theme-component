@@ -32,18 +32,7 @@ api.decorateWidget("header-buttons:after", helper => {
   };
     
 
-  if (!Discourse.User.current()) {
-      return helper.h(
-        ntb_button_helper,
-        {
-          className: ntb_button_class,
-          title: ntb_title2,
-          onclick: createTopic;
-        },
-
-          [iconNode(ntb_icon), helper.h(ntb_label_helper, ntb_text)]
-      );
-  } else {
+  if (Discourse.User.current()) {
       return helper.h(
         ntb_button_helper,
         {
