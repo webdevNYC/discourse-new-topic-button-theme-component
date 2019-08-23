@@ -18,7 +18,7 @@ api.decorateWidget("header-buttons:after", helper => {
 
   const createTopic = function() {
       if (!Discourse.User.current()) {
-          alert('not login');
+          alert('You need to SignUp or Login into your account to Be able to Create a New Topic');
       }
     const controller = container.lookup("controller:navigation/category"),
       category = controller.get("category.id"),
