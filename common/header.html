@@ -17,6 +17,9 @@ api.decorateWidget("header-buttons:after", helper => {
     composerController = container.lookup("controller:composer");
 
   const createTopic = function() {
+      if (!Discourse.User.current()) {
+          alert('not login');
+      }
     const controller = container.lookup("controller:navigation/category"),
       category = controller.get("category.id"),
       topicCategory = container
