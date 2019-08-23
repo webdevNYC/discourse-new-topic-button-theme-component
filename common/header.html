@@ -31,8 +31,6 @@ api.decorateWidget("header-buttons:after", helper => {
     });
   };
     
-
-  if (Discourse.User.current()) {
       return helper.h(
         ntb_button_helper,
         {
@@ -43,8 +41,6 @@ api.decorateWidget("header-buttons:after", helper => {
 
           [iconNode(ntb_icon), helper.h(ntb_label_helper, ntb_text)]
       );
-  }
-    
     
 });
 </script>
