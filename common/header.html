@@ -1,5 +1,8 @@
 <script type="text/discourse-plugin" version="0.8">
 const { iconNode } = require("discourse-common/lib/icon-library");
+  const user = api.getCurrentUser();
+  
+  console.log(user);
 
 api.decorateWidget("header-buttons:after", helper => {
  // if (!Discourse.User.current()) return;
