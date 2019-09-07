@@ -18,7 +18,7 @@ api.decorateWidget("header-buttons:after", helper => {
 
   const createTopic = function() {
       if (!Discourse.User.current()) {
-          alert('You need Login to to Ask a Question');
+          alert('You need to Login to Ask a Question');
           //window.location.replace("https://forums.ddsgadget.com/t/how-to-use-this-site/50");
       }
     const controller = container.lookup("controller:navigation/category"),
