@@ -1,7 +1,7 @@
 New_topic_button_icon:
   default: "plus"
   description:
-    en: Choose an icon for the button. You can use any FontAwesome 4.7 icon name like "music" or "star" without quote marks. 
+    en: Choose an icon for the button. You can use any FontAwesome 4.7 icon name like "music" or "star" without quote marks.
 New_topic_button_text:
   default: "New Topic"
   description:
@@ -14,3 +14,7 @@ Hide_default_button:
   default: true
   description:
     en: Hide the default "New topic" button in topic lists?
+New_topic_category:
+  default: ""
+  description:
+    en: "Enter the id of the category that will be default category for posting. Must be category that everyone can post to"
