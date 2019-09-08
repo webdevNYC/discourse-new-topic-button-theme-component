@@ -16,8 +16,9 @@ api.decorateWidget("header-buttons:after", helper => {
     composerModal = require("discourse/models/composer").default,
     composerController = container.lookup("controller:composer");
     //setting default category b/c if category is restricted will cause error - admin has all rights so for admin no default
-     let currentUser = api.getCurrentUser();
-      if (currentUser.admin) {
+     let currentUser = Discourse.User.current();
+
+      if(currentUser.admin) {
             let ntb_default_cat = settings.New_topic_category;
       } else {
             let ntb_default_cat = settings.New_topic_category;
