@@ -1,8 +1,5 @@
 <script type="text/discourse-plugin" version="0.8">
 const { iconNode } = require("discourse-common/lib/icon-library");
-  const user = api.getCurrentUser();
-  
-  console.log(user);
 
 api.decorateWidget("header-buttons:after", helper => {
  // if (!Discourse.User.current()) return;
@@ -18,10 +15,13 @@ api.decorateWidget("header-buttons:after", helper => {
     ntb_label_helper = "span.d-button-label",
     composerModal = require("discourse/models/composer").default,
     composerController = container.lookup("controller:composer");
+    //setting default category b/c if category is restricted will cause error
+    let ntb_default_cat = settings.New_topic_category;
 
   const createTopic = function() {
       if (!Discourse.User.current()) {
           alert('You need to Login to Ask a Question');
+          return;
           //window.location.replace("https://forums.ddsgadget.com/t/how-to-use-this-site/50");
       }
     const controller = container.lookup("controller:navigation/category"),
@@ -30,9 +30,18 @@ api.decorateWidget("header-buttons:after", helper => {
         .lookup("route:topic")
         .get("context.category.id"),
       categoryd = topicCategory ? topicCategory : category;
+      //only use current category if admin because other users maybe restricted
+      if (currentUser.admin) {
+            let ntb_category = categoryd;
+      } else {
+            //set default category for non admin
+            let ntb_category = ntb_default_cat;
+      }
+      
 
     composerController.open({
       action: composerModal.CREATE_TOPIC,
+      categoryId: ntb_category,
       draftKey: composerModal.DRAFT
     });
   };
