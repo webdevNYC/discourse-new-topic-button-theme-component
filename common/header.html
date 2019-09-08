@@ -31,6 +31,7 @@ api.decorateWidget("header-buttons:after", helper => {
         .get("context.category.id"),
       categoryd = topicCategory ? topicCategory : category;
       //only use current category if admin because other users maybe restricted
+      let currentUser = api.getCurrentUser();
       if (currentUser.admin) {
             let ntb_category = categoryd;
       } else {
