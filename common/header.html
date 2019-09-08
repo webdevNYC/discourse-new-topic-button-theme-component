@@ -25,8 +25,6 @@ api.decorateWidget("header-buttons:after", helper => {
           //window.location.replace("https://forums.ddsgadget.com/t/how-to-use-this-site/50");
       }
     
-    //set default category for non admin
-    let ntb_category = ntb_default_cat;
     const controller = container.lookup("controller:navigation/category"),
       category = controller.get("category.id"),
       topicCategory = container
@@ -38,7 +36,7 @@ api.decorateWidget("header-buttons:after", helper => {
 
     composerController.open({
       action: composerModal.CREATE_TOPIC,
-      categoryId: ntb_category,
+      categoryId: ntb_default_cat,
       draftKey: composerModal.DRAFT
     });
   };
