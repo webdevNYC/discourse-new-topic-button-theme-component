@@ -24,20 +24,16 @@ api.decorateWidget("header-buttons:after", helper => {
           return;
           //window.location.replace("https://forums.ddsgadget.com/t/how-to-use-this-site/50");
       }
+    
+    //set default category for non admin
+    let ntb_category = ntb_default_cat;
     const controller = container.lookup("controller:navigation/category"),
       category = controller.get("category.id"),
       topicCategory = container
         .lookup("route:topic")
         .get("context.category.id"),
       categoryd = topicCategory ? topicCategory : category;
-      //only use current category if admin because other users maybe restricted
-      let currentUser = api.getCurrentUser();
-      if (currentUser.admin) {
-            let ntb_category = categoryd;
-      } else {
-            //set default category for non admin
-            let ntb_category = ntb_default_cat;
-      }
+      
       
 
     composerController.open({
