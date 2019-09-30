@@ -16,6 +16,7 @@ api.decorateWidget("header-buttons:after", helper => {
     composerModal = require("discourse/models/composer").default,
     composerController = container.lookup("controller:composer");
     //setting default category b/c if category is restricted will cause error - admin has all rights so for admin no default
+    //the error happens when you are logged in as a user to a category that you don't have access to and then when click on that category cant post there because you don't have access to that ctaegory id
 
             let ntb_default_cat = settings.New_topic_category;
 
@@ -31,8 +32,8 @@ api.decorateWidget("header-buttons:after", helper => {
       topicCategory = container
         .lookup("route:topic")
         .get("context.category.id"),
-      categoryd = topicCategory ? topicCategory : category;
-
+      // categoryd = topicCategory ? topicCategory : category;
+      categoryd = 6;
 
 
     composerController.open({
